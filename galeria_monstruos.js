@@ -13,7 +13,9 @@ const listaDeMonstruos = [
     'RexMajor.png',
     'Terratuga.png',
     'TitanWyvern.png',
-    'WarwornOwlbear.png'
+    'WarwornOwlbear.png',
+    'Feral Dragon.png',
+    'Muscipula Rex.png'
 ];
 
 // ELEMENTOS DEL DOM
@@ -91,4 +93,5 @@ btnLimpiar.addEventListener('click', () => {
     // Esto hace que el filtro se vuelva a ejecutar
     // y, como el buscador está vacío, mostrará todas las cartas.
     buscador.dispatchEvent(new Event('input'));
+
 });
