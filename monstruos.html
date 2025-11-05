@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monstruos - Compendio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Cartas de Monstruos</h1>
+    <p>Aquí está la colección de todas las cartas de monstruo.</p>
+
+    <a href="index.html" class="boton-volver">← Volver al Menú</a>
+
+    <div class="buscador-container">
+        <input type="search" id="buscador-cartas" placeholder="Escribe el nombre de un monstruo...">
+        
+        <button id="limpiar-buscador" title="Limpiar búsqueda">&times;</button>
+    </div>
+
+    <div class="galeria-cartas" id="galeria"></div>
+
+    <div id="modal-carta" class="modal">
+        <span class="cerrar-modal">&times;</span>
+        <img class="modal-contenido" id="img-modal" src="">
+        
+    </div>
+
+    <script src="galeria_monstruos.js"></script>
+
+</body>
+</html>

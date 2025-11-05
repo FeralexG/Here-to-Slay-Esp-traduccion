@@ -1,0 +1,472 @@
+/* Estilos generales para toda la página */
+body {
+    font-family: Arial, sans-serif; /* Tipo de letra limpio */
+    background-image: url('background.png'); /* ¡Aquí va la ruta a tu imagen! */
+    background-size: cover; /* Hace que la imagen cubra todo el fondo sin distorsionarse */
+    background-repeat: no-repeat; /* Evita que la imagen se repita si es pequeña */
+    background-attachment: fixed; /* Hace que la imagen de fondo no se mueva al hacer scroll */
+    background-position: center center; /* Centra la imagen de fondo */
+    color: #333;                   /* Color de texto oscuro */
+    text-align: center;             /* Centra todo el texto */
+    padding-top: 50px;
+}
+
+h1 {
+    color: #ea04ff; /* Un color más oscuro para el título */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+p {
+    color: #ecf0f1; /* Asegurarse que el párrafo se vea bien */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* El contenedor de nuestro menú */
+.menu-principal {
+    display: flex; /* Usamos flexbox para alinear los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 20px; /* Espacio entre cada botón */
+    margin-top: 30px;
+}
+
+/* Estilo de cada "botón" (que en realidad es un enlace) */
+.boton-menu {
+    display: inline-block;
+    background-color: #3498db; /* Color azul */
+    color: #ffffff;           /* Texto blanco */
+    padding: 20px 40px;       /* Relleno (20px arriba/abajo, 40px izq/der) */
+    text-decoration: none;    /* Quita el subrayado del enlace */
+    font-weight: bold;        /* Texto en negrita */
+    font-size: 18px;
+    border-radius: 8px;       /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.3s; /* Animación suave */
+}
+
+/* Esto crea el efecto "interactivo" al pasar el ratón */
+.boton-menu:hover {
+    background-color: #2980b9; /* Un azul más oscuro al pasar el ratón */
+    transform: scale(1.05);   /* Agranda ligeramente el botón */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* ============================================== */
+/* REGLAS PARA ADAPTATIVO     */
+/* ============================================== */
+
+/* "Si el ancho de la pantalla es 600px o menos..." */
+@media (max-width: 600px) {
+
+    /* Cambiamos la dirección del menú */
+    .menu-principal {
+        flex-direction: column; /* Apila los botones verticalmente */
+        align-items: center;    /* Los centra en esa columna */
+        gap: 15px;              /* Un poco menos de espacio entre ellos */
+    }
+
+    /* Hacemos que los botones ocupen más ancho en el móvil */
+    .boton-menu {
+        width: 80%; /* Ocupa el 80% del ancho de la pantalla */
+        padding: 15px; /* Ajustamos el relleno para que no sea tan grande */
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px; /* Un título un poco más pequeño */
+    }
+}
+
+/* ============================================== */
+/* ESTILOS PARA LA PÁGINA DE MONSTRUOS     */
+/* ============================================== */
+
+/* Estilo para el botón de "Volver" */
+.boton-volver {
+    display: inline-block;
+    margin-bottom: 30px;
+    background-color: #7f8c8d; /* Un color gris neutro */
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-volver:hover {
+    background-color: #95a5a6; /* Un gris más claro */
+}
+
+/* Contenedor de la galería de cartas */
+.galeria-cartas {
+    display: grid;
+    /* Esto crea columnas automáticas. 
+      'auto-fit' -> Llena el espacio con tantas columnas como quepan.
+      'minmax(250px, 1fr)' -> Cada columna tendrá un mínimo de 250px 
+                             y un máximo de 1 fracción del espacio (se reparten).
+      ¡Esto la hace "responsive" automáticamente!
+    */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px; /* Espacio entre las cartas */
+    padding: 20px;
+    max-width: 1400px; /* Un ancho máximo para la galería */
+    margin: 0 auto;    /* Centra la galería en la página */
+    justify-items: center; /* Centra las cartas */
+}
+
+/* Estilo para cada imagen de carta */
+.carta {
+    width: 100%; /* La imagen ocupa todo el espacio de su "celda" en el grid */
+    max-width: 250px; /* Limita el ancho máximo */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 12px; /* Bordes redondeados, como una carta real */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Sombra para darle profundidad */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@media (max-width: 600px) {
+    .galeria-cartas {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Más pequeñas en móvil */
+        gap: 15px;
+    }
+}
+
+/* Efecto interactivo al pasar el ratón por encima de una carta */
+.carta:hover {
+    transform: scale(1.05); /* Agranda la carta ligeramente */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* Una sombra más pronunciada */
+    cursor: pointer;
+}
+
+/* ============================================== */
+/* ESTILOS DEL MODAL */
+/* ============================================== */
+
+/* El fondo del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Se queda fijo en la pantalla */
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Cubre todo el ancho */
+    height: 100%; /* Cubre todo el alto */
+    overflow: auto; /* Permite scroll si la imagen es muy grande */
+    background-color: rgba(0,0,0,0.9); /* Fondo negro semitransparente */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    flex-direction: column;
+}
+
+/* Contenido del modal */
+.modal-contenido {
+    margin: auto;
+    display: block;
+    width: 90%; /* Ancho máximo del 90% de la ventana */
+    max-width: 600px; /* Pero nunca más de 600px para que no sea gigante */
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+    animation-name: zoom; /* Animación de aparición */
+    animation-duration: 0.6s;
+}
+
+/* Animación de zoom para el modal */
+@keyframes zoom {
+    from {transform: scale(0.1)} 
+    to {transform: scale(1)}
+}
+
+/* Botón de cerrar */
+.cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001; /* Asegura que la 'x' esté sobre la imagen del modal */
+}
+
+.cerrar-modal:hover,
+.cerrar-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* Opcional: Ajustes para móviles si el modal es muy grande */
+@media (max-width: 700px) {
+    .modal-contenido {
+        width: 100%; /* Ocupa casi todo el ancho en móviles */
+        max-width: none; /* Sin límite de ancho máximo en móvil */
+    }
+    .cerrar-modal {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
+}
+
+/* ============================================== */
+/* ESTILOS DEL BUSCADOR */
+/* ============================================== */
+
+#buscador-cartas {
+    flex-grow: 1; /* Hace que ocupe el espacio disponible */
+    width: 80%; /* Ancho del 80% de la pantalla */
+    max-width: 500px; /* Pero con un máximo de 500px */
+    margin: 30px auto; /* 30px de espacio arriba/abajo y centrado horizontal */
+    padding: 0 15px;
+    height: 50px; /* ALTURA FIJA! */
+    box-sizing: border-box; 
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    outline: none; /* Quita el borde azul al hacer clic */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Ajuste para que el botón no se pegue */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Efecto al hacer clic en el buscador */
+#buscador-cartas:focus {
+    border-color: #3498db; /* Borde azul */
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+/* ============================================== */
+/* ESTILOS DEL CONTENEDOR DEL BUSCADOR */
+/* ============================================== */
+
+.buscador-container {
+    display: flex; /* Para ponerlos uno al lado del otro */
+    align-items: center; /* Alinea verticalmente el input y el botón */
+    width: 80%;
+    max-width: 500px; /* Le pasamos el max-width del input */
+    margin: 30px auto; /* Le pasamos el centrado del input */
+}
+
+#limpiar-buscador {
+    padding: 0 15px; /* padding horizontal */
+    height: 50px; /* LA MISMA ALTURA FIJA */
+    box-sizing: border-box;
+    font-size: 20px; /* Tamaño de la "X" */
+    font-weight: bold;
+    color: #888;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-left: none; /* Evita doble borde */
+    border-top-right-radius: 8px; /* Redondea las esquinas derechas */
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#limpiar-buscador:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* ============================================== */
+/* ESTILOS DE LOS FILTROS DE CLASE */
+/* ============================================== */
+
+.filtros-clase {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones bajen de línea en móvil */
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px; /* Espacio antes de la galería */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boton-filtro {
+    /* Hacemos el botón redondo y de tamaño fijo */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Esto lo hace un círculo */
+    padding: 0; /* Quitamos el padding de texto */
+    
+    /* Centramos la imagen dentro del botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Estilos de borde y transición */
+    border: 2px solid #3498db;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.boton-filtro:hover {
+    background-color: #ecf5fb;
+}
+
+/* Estilo para el botón que está SELECCIONADO */
+.boton-filtro.activo {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+/* Estilo para la IMAGEN DENTRO del botón */
+.boton-filtro img {
+    width: 80%; /* Hacemos el icono un 60% del tamaño del botón */
+    height: 80%;
+    object-fit: contain; /* Asegura que la imagen escale bien */
+    pointer-events: none; /* Evita que la imagen interfiera con el clic del botón */
+}
+
+/* Estilo para el botón ACTIVO */
+.boton-filtro.activo {
+    background-color: #3498db; /* Mismo color de fondo azul */
+    transform: scale(1.1); /* Lo hacemos un poco más grande */
+}
+
+/* 
+  Esto invierte los colores de la imagen 
+  (la hace blanca) cuando el botón está activo.
+*/
+.boton-filtro.activo img {
+    filter: brightness(0) invert(1);
+}
+
+/* ============================================== */
+/* ESTILOS DE COLOR PARA CADA BOTÓN DE FILTRO */
+/* ============================================== */
+
+/* --- LUCHADOR (Rojo) --- */
+.boton-filtro[data-clase="luchador"] {
+    border-color: #c0392b;
+}
+.boton-filtro[data-clase="luchador"]:hover {
+    background-color: #fbeeeC; 
+}
+.boton-filtro[data-clase="luchador"].activo {
+    background-color: #c0392b; 
+    border-color: #c0392b; 
+}
+
+/* --- GUARDIAN (Amarillo) --- */
+.boton-filtro[data-clase="guardian"] {
+    border-color: #f1c40f; 
+}
+.boton-filtro[data-clase="guardian"]:hover {
+    background-color: #fef9e7; 
+}
+.boton-filtro[data-clase="guardian"].activo {
+    background-color: #f1c40f; 
+    border-color: #f1c40f; 
+}
+
+/* --- CAZADOR (Verde) --- */
+.boton-filtro[data-clase="cazador"] {
+    border-color: #013013; 
+}
+.boton-filtro[data-clase="cazador"]:hover {
+    background-color: #eaf7ef; 
+}
+.boton-filtro[data-clase="cazador"].activo {
+    background-color: #013013; 
+    border-color: #013013; 
+}
+
+/* --- LADRON (Azul Fuerte) --- */
+.boton-filtro[data-clase="ladron"] {
+    border-color: #162180; 
+}
+.boton-filtro[data-clase="ladron"]:hover {
+    background-color: #f4ecf7; 
+}
+.boton-filtro[data-clase="ladron"].activo {
+    background-color: #162180; 
+    border-color: #162180; 
+}
+
+/* --- MAGO (Púrpura) --- */
+.boton-filtro[data-clase="mago"] {
+    border-color: #8e44ad; 
+}
+.boton-filtro[data-clase="mago"]:hover {
+    background-color: #ebf5fb; 
+}
+.boton-filtro[data-clase="mago"].activo {
+    background-color: #8e44ad; 
+    border-color: #8e44ad; 
+}
+
+/* --- Bardo (Naranja) --- */
+.boton-filtro[data-clase="bardo"] {
+    border-color: #ca6d2f; 
+}
+.boton-filtro[data-clase="bardo"]:hover {
+    background-color: #fbeeeC; 
+}
+.boton-filtro[data-clase="bardo"].activo {
+    background-color: #ca6d2f; 
+    border-color: #ca6d2f; 
+}
+
+/* --- Guerrero (Azul) --- */
+.boton-filtro[data-clase="guerrero"] {
+    border-color: #5a6ab1; 
+}
+.boton-filtro[data-clase="guerrero"]:hover {
+    background-color: #fbeeeC; 
+}
+.boton-filtro[data-clase="guerrero"].activo {
+    background-color: #5a6ab1; 
+    border-color: #5a6ab1; 
+}
+
+/* --- Druida (Verde azul) --- */
+.boton-filtro[data-clase="druida"] {
+    border-color: #38bc9c; 
+}
+.boton-filtro[data-clase="druida"]:hover {
+    background-color: #fbeeeC;
+}
+.boton-filtro[data-clase="druida"].activo {
+    background-color: #38bc9c; 
+    border-color: #38bc9c; 
+}
+
+/* --- nigromante (mostaza) --- */
+.boton-filtro[data-clase="nigromante"] {
+    border-color: #d32471; 
+}
+.boton-filtro[data-clase="nigromante"]:hover {
+    background-color: #fbeeeC; 
+}
+.boton-filtro[data-clase="nigromante"].activo {
+    background-color: #d32471; 
+    border-color: #d32471; 
+}
+
+/* --- berserker (mostaza) --- */
+.boton-filtro[data-clase="berserker"] {
+    border-color: #d8912b; 
+}
+.boton-filtro[data-clase="berserker"]:hover {
+    background-color: #fbeeeC; 
+}
+.boton-filtro[data-clase="berserker"].activo {
+    background-color: #d8912b; 
+    border-color: #d8912b; 
+}
+
+/* --- Color para "Todos" --- */
+.boton-filtro[data-clase="todos"] {
+    border-color: #7f8c8d; 
+}
+.boton-filtro[data-clase="todos"]:hover {
+    background-color: #f4f6f6; 
+}
+.boton-filtro[data-clase="todos"].activo {
+    background-color: #7f8c8d; 
+    border-color: #7f8c8d; 
+}

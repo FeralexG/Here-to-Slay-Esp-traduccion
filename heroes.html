@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heroes - Compendio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Cartas de Heroes</h1>
+    <p>Aquí está la colección de todas las cartas de héroes.</p>
+
+    <a href="index.html" class="boton-volver">← Volver al Menú</a>
+
+    <div class="buscador-container">
+        <input type="search" id="buscador-cartas" placeholder="Escribe el nombre de un héroe...">
+        
+        <button id="limpiar-buscador" title="Limpiar búsqueda">&times;</button>
+    </div>
+
+    <div class="filtros-clase">
+        <button class="boton-filtro activo" data-clase="todos" title="Todos">
+            <img src="simbolos/generico.png" alt="Todos">
+        </button>
+        <button class="boton-filtro" data-clase="luchador" title="Luchador">
+            <img src="simbolos/luchador.png" alt="Luchador">
+        </button>
+        <button class="boton-filtro" data-clase="guardian" title="Guardián">
+            <img src="simbolos/guardian.png" alt="Guardián">
+        </button>
+        <button class="boton-filtro" data-clase="cazador" title="Cazador">
+            <img src="simbolos/cazador.png" alt="Cazador">
+        </button>
+        <button class="boton-filtro" data-clase="ladron" title="Ladrón">
+            <img src="simbolos/ladron.png" alt="Ladrón">
+        </button>
+        <button class="boton-filtro" data-clase="mago" title="Mago">
+            <img src="simbolos/mago.png" alt="Mago">
+        </button>
+        <button class="boton-filtro" data-clase="bardo" title="Bardo">
+            <img src="simbolos/bardo.png" alt="Bardo">
+        </button>
+        <button class="boton-filtro" data-clase="guerrero" title="Guerrero">
+            <img src="simbolos/guerrero.png" alt="Guerrero">
+        </button>
+        <button class="boton-filtro" data-clase="druida" title="Druida">
+            <img src="simbolos/druida.png" alt="Druida">
+        </button>
+        <button class="boton-filtro" data-clase="nigromante" title="nigromante">
+            <img src="simbolos/nigromante.png" alt="nigromante">
+        </button>
+        <button class="boton-filtro" data-clase="berserker" title="Berserker">
+            <img src="simbolos/berserker.png" alt="Berserker">
+        </button>
+    </div>
+
+    <div class="galeria-cartas" id="galeria"></div>
+
+    <div id="modal-carta" class="modal">
+        <span class="cerrar-modal">&times;</span>
+        <img class="modal-contenido" id="img-modal" src="">
+    </div>
+
+    <script src="galeria_heroes.js"></script>
+
+</body>
+</html>
