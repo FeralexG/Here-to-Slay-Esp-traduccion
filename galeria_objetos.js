@@ -11,7 +11,14 @@ const listaDeMonstruos = [
     'Guardian Mask.png',
     'Ranger Mask.png',
     'Thief Mask.png',
-    'Wizard Mask.png'
+    'Wizard Mask.png',
+    'Bottomless Bag.png',
+    'Even Bigger Ring.png',
+    'Temporal Hourglass.png',
+    'Cursed Glove.png',
+    'Soul Tether.png',
+    'Warrior Mask.png',
+    'Druid Mask.png'
 
 ];
 
@@ -90,4 +97,5 @@ btnLimpiar.addEventListener('click', () => {
     // Esto hace que el filtro se vuelva a ejecutar
     // y, como el buscador está vacío, mostrará todas las cartas.
     buscador.dispatchEvent(new Event('input'));
+
 });
