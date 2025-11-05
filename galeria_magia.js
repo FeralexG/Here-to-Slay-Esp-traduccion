@@ -6,7 +6,9 @@ const listaDeMonstruos = [
     'Entangling Trap.png',
     'Forced Exchange.png',
     'Forceful Winds.png',
-    'Winds of Change.png'
+    'Winds of Change.png',
+    'Beast Call.png',
+    'Rapid Refresh.png'
 ];
 
 // ELEMENTOS DEL DOM
@@ -84,4 +86,5 @@ btnLimpiar.addEventListener('click', () => {
     // Esto hace que el filtro se vuelva a ejecutar
     // y, como el buscador está vacío, mostrará todas las cartas.
     buscador.dispatchEvent(new Event('input'));
+
 });
