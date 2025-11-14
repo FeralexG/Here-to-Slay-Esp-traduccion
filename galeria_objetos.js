@@ -18,8 +18,14 @@ const listaDeMonstruos = [
     'Cursed Glove.png',
     'Soul Tether.png',
     'Warrior Mask.png',
-    'Druid Mask.png'
-
+    'Druid Mask.png',
+    "Biggest Ring Ever.png",
+    "Goblet of Caffeination.png",
+    "Silver Lining.png",
+    "Dragons Bile.png",
+    "Soulbound Grimoire.png",
+    "Berserker Mask.png",
+    "Necromancer Mask.png"
 ];
 
 // ELEMENTOS DEL DOM 
@@ -99,3 +105,4 @@ btnLimpiar.addEventListener('click', () => {
     buscador.dispatchEvent(new Event('input'));
 
 });
+
