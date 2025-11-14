@@ -8,7 +8,9 @@ const listaDeMonstruos = [
     'Forceful Winds.png',
     'Winds of Change.png',
     'Beast Call.png',
-    'Rapid Refresh.png'
+    'Rapid Refresh.png',
+    'Mass Sacrifice.png',
+    'Lightning Labrys.png'
 ];
 
 // ELEMENTOS DEL DOM
@@ -88,3 +90,4 @@ btnLimpiar.addEventListener('click', () => {
     buscador.dispatchEvent(new Event('input'));
 
 });
+
