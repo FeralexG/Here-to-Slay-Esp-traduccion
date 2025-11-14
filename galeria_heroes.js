@@ -64,8 +64,21 @@ const listaDeHeroes = [
     'druida_Majestelk.png',
     'druida_Stagguard.png',
     'nigromante_Bark_Hexer.png',
-
-    'berserker_Annihilator.png'
+    'nigromante_Beholden_Retriever.png',
+    'nigromante_Bone_Collector.png',
+    'nigromante_Boston_Terror.png',
+    'nigromante_Grim_Pupper.png',
+    'nigromante_Hollow_Husk.png',
+    'nigromante_Perfect_Vessel.png',
+    'nigromante_Shadow_Saint.png',
+    'berserker_Annihilator.png',
+    'berserker_Brawling_Spirit.png',
+    'berserker_Gruesome_Gladiator.png',
+    'berserker_Meowntain.png',
+    'berserker_Rabid_Beast.png',
+    'berserker_Roaryal_Guard.png',
+    'berserker_Vicious_Wildcat.png',
+    'berserker_Unbridled_Fury.png'
 ];
 
 // ELEMENTOS DEL DOM
@@ -178,4 +191,5 @@ filtroBotones.forEach(boton => {
         // 4. Ejecutar el filtro
         filtrarGaleria();
     });
+
 });
