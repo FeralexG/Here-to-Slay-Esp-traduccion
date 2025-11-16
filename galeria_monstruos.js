@@ -15,7 +15,9 @@ const listaDeMonstruos = [
     'TitanWyvern.png',
     'WarwornOwlbear.png',
     'Feral Dragon.png',
-    'Muscipula Rex.png'
+    'Muscipula Rex.png',
+    'Doombringer.png',
+    'Reptilian Ripper.png'
 ];
 
 // ELEMENTOS DEL DOM
@@ -95,3 +97,4 @@ btnLimpiar.addEventListener('click', () => {
     buscador.dispatchEvent(new Event('input'));
 
 });
+
