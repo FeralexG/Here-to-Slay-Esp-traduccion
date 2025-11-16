@@ -6,7 +6,9 @@ const listaDeMonstruos = [
     'The Protecting Horn.png',
     'The Shadow Claw.png',
     'The Noble Shaman.png',
-    'The Piercing Howl.png'
+    'The Piercing Howl.png',
+    'The Gnawing Dread.png',
+    'The Raging Manticore.png'
 ];
 
 // ELEMENTOS DEL DOM
@@ -84,4 +86,5 @@ btnLimpiar.addEventListener('click', () => {
     // Esto hace que el filtro se vuelva a ejecutar
     // y, como el buscador está vacío, mostrará todas las cartas.
     buscador.dispatchEvent(new Event('input'));
+
 });
